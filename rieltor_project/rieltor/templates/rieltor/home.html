@@ -1,19 +1,22 @@
 {% extends 'rieltor/base.html' %}
 
-{% block title %}Главная страница - Риелтор{% endblock %}
+{% block title %}Главная{% endblock %}
 {% block description %}Услуги риелтора, покупка и продажа недвижимости{% endblock %}
 {% block keywords %}главная, риелтор, недвижимость, керчь, симферополь, купить квартиру{% endblock %}
 
 {% block content  %}
 
-<h2 class="review-section">Услуги риелтора</h2>
-<p class="review-section">Здесь будет описание того, чем занимается риелтор. Например, помощь в покупке, продаже и аренде недвижимости.</p>
+<h2 class="text_link">Здравствуйте!</h2>
+<p class="text_link">"Я предлагаю широкий выбор недвижимости для покупки и аренды. Я как агент помогут вам найти лучший вариант для вашего бюджета и предпочтений."</p>
+
 
 <section class="review-section">
-    <h2>Отзывы клиентов</h2>
+
+
+    <div class="text_link">Отзывы клиентов</div>
     {% for review in page_obj %}
     <div class="review">
-        <p>Имя: <small>{{ review.name }}</small> Комментарий: <small>{{ review.comment }}</small> Дата: <small>{{ review.created_at }}</small></p>
+        <p>Имя: <small>{{review.name}}</small> Отзыв: <small>{{review.comment}}</small> Дата: <small>{{review.created_at}}</small></p>
     </div>
     {% empty %}
     <p>Пока нет отзывов.</p>
@@ -22,19 +25,20 @@
     <!-- Пагинация -->
     <div class="pagination">
         {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; Первая</a>
-            <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+        <a href="?page=1">&laquo; Первая</a>
+        <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
         {% endif %}
 
         <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
+        <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
         {% endif %}
     </div>
 
-    <a class="pagination" href="{% url 'add_review' %}">Оставить отзыв</a>
+    <a class="pagination" href="{% url 'add_review' %}" style="display: block; margin: 0 auto; color:black">Оставить отзыв</a>
+
 </section>
 
 {% endblock %}

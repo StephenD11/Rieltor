@@ -6,6 +6,9 @@
     <title>{% block title %}Сайт Риелтора{% endblock %}</title>
     <meta name="description" content="{% block description %}Риелторские услуги{% endblock %}">
     <meta name="keywords" content="{% block keywords %}недвижимость, риелтор, покупка квартир{% endblock %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="{% static 'rieltor/styles.css' %}">
 
     <!-- Google tag (gtag.js) -->
@@ -18,27 +21,43 @@
         gtag('config', 'G-3V2J7443WY');
     </script>
 </head>
+
+
 <body>
-<header class="review-section">
-    <h1 class="gallery">Добро пожаловать на сайт риелтора!</h1>
-    <nav class="gallery">
-        <ul>
-            <li><a href="/">Главная</a></li>
-            <li><a href="/gallery/">Галерея недвижимости</a></li>
-            <li><a href="/contacts/">Контакты</a></li>
-            <li><a href="/faq/">Частые вопросы</a></li>
-            <li><a href="{% url 'admin:index' %}">Вход</a></li>
-        </ul>
-    </nav>
-</header>
 
-<main>
-    {% block content %}{% endblock %}
-</main>
+    <div class="gallery" style="font-size: 55px; font-family: 'Alumni Sans', sans-serif; padding:10px">
+        Ваш проводник в мире недвижимости
+    </div>
+    <div class="gallery" style="font-size: 25px; font-family: 'Alumni Sans', sans-serif">
+        Поможем найти дом вашей мечты или выгодно продать квартиру
+    </div>
+    <div class="white-block">
+        <header class="">
+            
+            <nav class="gallery">
+                <ul>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/gallery/">Недвижимость</a></li>
+                    <li><a href="/contacts/">Контакты</a></li>
+                    <li><a href="/faq/">Частые вопросы</a></li>
+                    <li><a href="{% url 'admin:index' %}">Вход</a></li>
+                </ul>
+            </nav>
+        </header>
+            
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
 
-<footer style="display: flex; justify-content: center;">
-    <p>© 2024 Риелтор</p>
-</footer>
+
+    <img src="{% static 'images/City.png' %}" alt="Изображение над подвалом" class="footer-image-container">
+
+
+    <footer class="footer" style="display: flex; justify-content: center;">
+        <p>© Риелтор - Дегтярева Елена Борисовна </p>
+    </footer>
 </body>
 </html>
 

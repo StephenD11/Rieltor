@@ -25,12 +25,5 @@
 <div>{{ property.map_link|safe }}</div>
 
 
-<div>
-    <h3>Клиенты связанные с этим объектом:</h3>
-    {% for client in property.clients.all %}
-    <ul>
-        <li>{{ client.name }} {{ client.surname }}</li>
-    </ul>
-    {% endfor %}
-</div>
+
 {% endblock %}
