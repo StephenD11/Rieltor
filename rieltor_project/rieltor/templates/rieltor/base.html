@@ -3,13 +3,15 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>{% block title %}Сайт Риелтора{% endblock %}</title>
-    <meta name="description" content="{% block description %}Риелторские услуги{% endblock %}">
+    <title>{% block title %}Главная{% endblock %}</title>
+    <meta name="description" content="{% block description %} Дегтярева Елена - Риелтор{% endblock %}">
     <meta name="keywords" content="{% block keywords %}недвижимость, риелтор, покупка квартир{% endblock %}">
-
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap"
-          rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'rieltor/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Commissioner:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&display=swap"
+          rel="stylesheet">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3V2J7443WY"></script>
@@ -17,48 +19,41 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-3V2J7443WY');
     </script>
 </head>
 
-
 <body>
+    <header>
+        <div class="header-container">
+    
+            <div class="logo-container">
+                <img src="{% static 'images/kerchdom_plis.png' %}" alt="Логотип" class="logo">
+            </div>
+    
+            <!-- Кнопки -->
+            <div id="menu-buttons">
+                <button><a href="/">ОБО МНЕ</a></button>
+                <button><a href="/faq/">УСЛУГИ</a></button>
+                <button><a href="/gallery/">НЕДВИЖИМОСТЬ</a></button>
+                <button><a href="/contacts/">КОНТАКТЫ</a></button>
+            </div>
+        </div>
+    </header>
 
-    <div class="gallery" style="font-size: 55px; font-family: 'Alumni Sans', sans-serif; padding:10px">
-        Ваш проводник в мире недвижимости
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer style="display: flex; justify-content: center; padding: 20px; font-size: 14px; max-width: 100%;">
+    <div class="logo-container-2">
+        <img src="{% static 'images/kerch_dom-logo-full.png' %}" alt="Логотип" class="logo-futter">
     </div>
-    <div class="gallery" style="font-size: 25px; font-family: 'Alumni Sans', sans-serif">
-        Поможем найти дом вашей мечты или выгодно продать квартиру
-    </div>
-    <div class="white-block">
-        <header class="">
-            
-            <nav class="gallery">
-                <ul>
-                    <li><a href="/">Главная</a></li>
-                    <li><a href="/gallery/">Недвижимость</a></li>
-                    <li><a href="/contacts/">Контакты</a></li>
-                    <li><a href="/faq/">Частые вопросы</a></li>
-                    <li><a href="{% url 'admin:index' %}">Вход</a></li>
-                </ul>
-            </nav>
-        </header>
-            
-        <main>
-            {% block content %}
-            {% endblock %}
-        </main>
-    </div>
+    <p><a href="{% url 'admin:index' %}" style="text-decoration: none; color: inherit;">© Риелтор - Дегтярева Елена Борисовна</a></p>
+</footer>
 
+<script src="{% static 'rieltor/script.js' %}"></script>
 
-    <img src="{% static 'images/City.png' %}" alt="Изображение над подвалом" class="footer-image-container">
-
-
-    <footer class="footer" style="display: flex; justify-content: center;">
-        <p>© Риелтор - Дегтярева Елена Борисовна </p>
-    </footer>
 </body>
 </html>
-
-

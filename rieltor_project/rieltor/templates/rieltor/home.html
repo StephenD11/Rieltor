@@ -1,44 +1,25 @@
 {% extends 'rieltor/base.html' %}
+{% load static %}
+
 
 {% block title %}Главная{% endblock %}
 {% block description %}Услуги риелтора, покупка и продажа недвижимости{% endblock %}
 {% block keywords %}главная, риелтор, недвижимость, керчь, симферополь, купить квартиру{% endblock %}
 
-{% block content  %}
-
-<h2 class="text_link">Здравствуйте!</h2>
-<p class="text_link">"Я предлагаю широкий выбор недвижимости для покупки и аренды. Я как агент помогут вам найти лучший вариант для вашего бюджета и предпочтений."</p>
-
-
-<section class="review-section">
-
-
-    <div class="text_link">Отзывы клиентов</div>
-    {% for review in page_obj %}
-    <div class="review">
-        <p>Имя: <small>{{review.name}}</small> Отзыв: <small>{{review.comment}}</small> Дата: <small>{{review.created_at}}</small></p>
+{% block content %}
+<section class="image-text-container">
+    <!-- Картинка для больших экранов -->
+    <img src="{% static 'images/mama2.jpg' %}" alt="Описание изображения" class="image image-large">
+    
+    <!-- Картинка для маленьких экранов -->
+    <img src="{% static 'images/mama3.jpg' %}" alt="Описание изображения" class="image image-small">
+    
+    <div class="text-container">
+        <p class="text text-first">МЕНЯ ЗОВУТ ЕЛЕНА</p>
+        <p class="text text-second">Я — профессиональный риелтор с более чем 20-летним опытом работы в сфере недвижимости. <br>
+            <br>
+            За эти годы я помогла многим людям найти идеальный дом, квартиру или коммерческую недвижимость <br><br> 
+            Моя цель — обеспечить каждому клиенту персональный подход и максимальную безопасность на всех этапах сделки.</p>
     </div>
-    {% empty %}
-    <p>Пока нет отзывов.</p>
-    {% endfor %}
-
-    <!-- Пагинация -->
-    <div class="pagination">
-        {% if page_obj.has_previous %}
-        <a href="?page=1">&laquo; Первая</a>
-        <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
-        {% endif %}
-
-        <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
-
-        {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
-        <a href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
-        {% endif %}
-    </div>
-
-    <a class="pagination" href="{% url 'add_review' %}" style="display: block; margin: 0 auto; color:black">Оставить отзыв</a>
-
 </section>
-
 {% endblock %}

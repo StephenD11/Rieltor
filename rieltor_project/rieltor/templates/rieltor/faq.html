@@ -1,23 +1,48 @@
 {% extends 'rieltor/base.html' %}
-
-{% block title %}Вопросы{% endblock %}
+{% load static %}
+{% block title %}Услуги{% endblock %}
 
 {% block content %}
-    <h2 class="review-section">Нажмите на интересующий вас вопрос</h2>
-
-    <div class="review-section">
-        {% for faq in faqs %}
-            <div class="faq-item">
-                <p class="question" onclick="toggleAnswer({{ faq.id }})">{{ faq.question }}</p>
-                <div id="answer-{{ faq.id }}" class="answer" style="display: none;">{{ faq.answer }}</div>
+ <section>
+        <div class="all_services">
+            <div>
+                <a href="/gallery/">
+                    <img src="{% static 'images/podbor.jpg' %}" alt="Подбор недвижимости">
+                </a>
             </div>
-        {% endfor %}
+            <div>
+                <a href="/contacts/">
+                    <img src="{% static 'images/ipoteka.jpg' %}" alt="Ипотека">
+                </a>
+            </div>
+            <div>
+                <a href="/contacts/">
+                    <img src="{% static 'images/zakon.jpg' %}" alt="Закон">
+                </a>
+            </div>
+        </div>
+
+ </section>
+ <section>
+    <div class="all_services">
+        <div>
+            <a href="/gallery/">
+                <img src="{% static 'images/prodatb.jpg' %}" alt="Продажа недвижимости">
+            </a>
+        </div>
+        <div>
+            <a href="/gallery/">
+                <img src="{% static 'images/arenda.jpg' %}" alt="Аренда">
+            </a>
+        </div>
+        <div>
+            <a href="/contacts/">
+                <img src="{% static 'images/trade.jpg' %}" alt="Трейд-Ин">
+            </a>
+        </div>
     </div>
 
-    <script>
-        function toggleAnswer(id) {
-            const answer = document.getElementById('answer-' + id);
-            answer.style.display = (answer.style.display === 'none') ? 'block' : 'none';
-        }
-    </script>
+</section>
+
+
 {% endblock %}

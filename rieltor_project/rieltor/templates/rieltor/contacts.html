@@ -3,31 +3,49 @@
 {% block title %}Контакты{% endblock %}
 
 {% block content  %}
-<div class="review-section">
-    <h2>Контактная информация</h2>
 
-    {% if company_info %}
-    <p><strong>Риелтор:</strong> {{ company_info.name }}</p>
-    <p><strong>Адрес:</strong> {{ company_info.address }}</p>
-    <p><strong>Телефон:</strong> {{ company_info.phone }}</p>
-    <p><strong>Email:</strong> {{ company_info.email }}</p>
-
-    {% if company_info.whatsup %}
-    <p><strong>Написать в WhatsUp:</strong> <a href="{{ company_info.whatsup }}" target="_blank">Перейти</a></p>
-    {% endif %}
-    {% else %}
-    <p>Информация о компании не доступна.</p>
-    {% endif %}
-    <p>Карта:</p>
-
-    <div style="position:relative;overflow:hidden;"><a
-            href="https://yandex.eu/maps/10466/amsterdam/?utm_medium=mapframe&utm_source=maps"
-            style="color:#eee;font-size:12px;position:absolute;top:0px;">Амстердам</a><a
-            href="https://yandex.eu/maps/geo/kerch/1444533085/?ll=36.498272%2C45.303110&utm_medium=mapframe&utm_source=maps&z=12.27"
-            style="color:#eee;font-size:12px;position:absolute;top:14px;">Керчь — Яндекс Карты</a>
-        <iframe src="https://yandex.com/map-widget/v1/?ll=36.498272%2C45.303110&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNDQ0NTMzMDg1EkrQo9C60YDQsNGX0L3QsCwg0JDQstGC0L7QvdC-0LzQvdCwINCg0LXRgdC_0YPQsdC70ZbQutCwINCa0YDQuNC8LCDQmtC10YDRhyIKDZneEUIVxWw1Qg%2C%2C&z=12.27"
-                width="100%" height="400" frameborder="0" allowfullscreen="true" style="border: none;"></iframe>
-    </div>
+<div class="center-container">
+    <section style="border: 1px solid rgb(226, 217, 217); /* Серая рамка размером 1px */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень, которая добавляется с отступом */">
+        <div>
+            <a
+                href="https://yandex.eu/maps/10466/amsterdam/?utm_medium=mapframe&utm_source=maps"
+                style="color:#eee;font-size:12px;position:absolute;top:0px;">Амстердам</a><a
+                href="https://yandex.eu/maps/geo/kerch/1444533085/?ll=36.498272%2C45.303110&utm_medium=mapframe&utm_source=maps&z=12.27"
+                style="color:#eee;font-size:12px;position:absolute;top:14px;">Керчь — Яндекс Карты</a>
+            <iframe src="https://yandex.com/map-widget/v1/?ll=36.498272%2C45.303110&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNDQ0NTMzMDg1EkrQo9C60YDQsNGX0L3QsCwg0JDQstGC0L7QvdC-0LzQvdCwINCg0LXRgdC_0YPQsdC70ZbQutCwINCa0YDQuNC8LCDQmtC10YDRhyIKDZneEUIVxWw1Qg%2C%2C&z=12.27"
+                    width="100%" height="250" frameborder="0" allowfullscreen="true" style="border: none;"></iframe>
+        </div>
+    </section>
+    <section>
+        <div>
+            <h2 style="display: flex; justify-content: space-around; font-size: 30px;">КОНТАКТНАЯ ИНФОРМАЦИЯ</h2>
+        
+            {% if company_info %}
+            <p style="display: flex; justify-content: space-around; font-size: 16px;"><strong style="color: #068e45;">Риелтор:</strong> {{ company_info.name }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong style="color: #068e45;">Телефон:</strong> {{ company_info.phone }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="color: #068e45;">Email:</strong> {{ company_info.email }}</p>
+        
+            {% if company_info.whatsup %}
+            <p style="display: flex; justify-content: center; align-items: center; font-size: 20px; gap: 10px;">
+                <strong>
+                    ДЛЯ БЫСТРОЙ СВЯЗИ МОЖЕТЕ НАПИСАТЬ В ЧАТ <b style="color: #068e45; font-size: 30px;"> WhatsApp: </b>
+                </strong>
+                <div id="menu-buttons">
+                    <button>
+                        <a style="font-size: 25px;" href="{{ company_info.whatsup }}" target="_blank">Перейти в чат</a>
+                    </button>
+                </div>
+            </p>
+            {% endif %}
+            {% else %}
+            <p>Информация о компании не доступна.</p>
+            {% endif %}
+        </div>
+    </section>
 </div>
+
+
+
+
+
 
 {% endblock %}

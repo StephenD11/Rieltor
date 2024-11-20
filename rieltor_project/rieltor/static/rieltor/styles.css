@@ -1,320 +1,438 @@
-
-
-
-/* Обновленный стиль для body */
-body {
+/* Стили для html */
+html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    color: #ffffff;
-    background: linear-gradient(135deg, #003c8f, #0073e6); /* Градиент фона */
-    min-height: 100vh; /* Минимальная высота - чтобы контент не обрезался */
+    height: 100%; /* Высота страницы всегда 100% */
+    font-family: 'Commissioner', sans-serif;
+    background-color: #ffffff; /* Цвет фона на случай, если изображение не загрузится */
+    background-image: url('/static/images/ground_2.jpg'); /* Фоновое изображение */
+    background-size: cover; /* Изображение растягивается, чтобы покрыть весь экран */
+    background-position: center; /* Центрируем фон */
+    background-repeat: no-repeat; /* Убираем повтор */
+    background-attachment: fixed; /* Фон остаётся зафиксированным при прокрутке */
+    display: flex;
+    flex-direction: column; /* Делаем элементы внутри body колонкой */
+}
+/* Контейнер для header */
+.header-container {
     display: flex;
     flex-direction: column;
-    padding-bottom: 90px; /* Чтобы подвал не перекрывал контент */
-    justify-content: center; /* Центрируем блок по горизонтали */   
-    align-items: center; /* Центрируем блок по вертикали */
+    justify-content: flex-start; /* Элементы выравниваются сверху */
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    position: relative; /* Позволяет точно управлять позиционированием */
 }
 
-
-
-/* Стили для текста внутри */
-.review-section {
-    margin-bottom: 20px; /* Отступы между секциями */
-    font-family: Arial, sans-serif; /* Шрифт */
-    color: #ffffff; /* Цвет текста */
+/* Контейнер логотипа */
+.logo-container {
+    margin-bottom: 20px; /* Пространство между логотипом и кнопками */
 }
 
-/* Отзывы */
-.review {
-    border-bottom: 1px solid #ddd; /* Разделитель между отзывами */
-    padding: 10px 0; /* Отступы внутри отзывов */
-    margin-bottom: 10px; /* Отступ снизу от каждого отзыва */
+/* Логотип */
+.logo {
+    max-width: 70%; /* Логотип не займет больше 90% ширины контейнера */
+    height: auto; /* Сохраняет пропорции */
+    display: inline-block; /* Убираем блочное поведение */
 }
 
-.review:last-child {
-    border-bottom: none; /* Убираем линию для последнего отзыва */
-}
-
-
-
-.white-block {
-    background: linear-gradient(135deg, #ffffff, #d3d9df); /* Градиент фона */
-    padding: 20px; /* Внутренние отступы */
-    margin: 20px auto; /* Отступы сверху/снизу и центрирование */
-    width: 90%; /* Ширина 90% экрана */
-    max-width: 1000px; /* Максимальная ширина */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для блока */
-    border-radius: 8px; /* Скругленные углы */
-    
-}
-
-.review strong {
-    color: #333;
-}
-
-.review p {
-    margin: 8px 0;
-}
-
-.review small {
-    color: #888;
-}
-
-/* Убираем стандартные маркеры (кружки) для списка */
-nav ul {
-    list-style: none; /* Убирает стандартные маркеры */
-    padding: 0;
-    margin: 0;
-}
-
-nav li {
-    display: inline-block;
-    margin-right: 20px;
-    font-size: 25px; /* Размер шрифта */
-}
-
-/* Стиль для ссылок в навигации */
-nav a {
-    text-decoration: none; /* Убираем подчеркивание */
-    color: #ffffff; /* Цвет текста */
-    font-size: 18px; /* Размер шрифта */
-}
-
-/* Стили для навигации при наведении */
-nav a:hover {
-    color: #007bff; /* Цвет текста при наведении */
-}
-
-
-.property-list {
-    display: flex;              /* Располагаем элементы в строку */
-    justify-content: space-between;  /* Добавляем пространство между элементами */
-    gap: 20px;                 /* Примерное расстояние между элементами */
-    justify-content: center;
-
-}
-
-.property-item {
-    width: 48%;                /* Каждый элемент займет 48% от ширины родительского контейнера */
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 15px;
-    background-color: #f9f9f9;
-    margin: auto;
-}
-
-.property-item img {
-    width: 100%;               /* Изображение будет растягиваться по ширине блока */
-    height: auto;              /* Сохраняем пропорции изображения */
-}
-
-/* Пагинация */
-.pagination {
-    margin-top: 20px;
-    text-align: center; /* Центрируем пагинацию */
-    color: black;
-    font-size: 25px;
-}
-
-.pagination .page-item {
-    margin: 0 10px;
-}
-
-.pagination a {
-    margin: 0 5px; /* Отступы между ссылками */
-    color: #007bff; /* Цвет ссылок */
-    text-decoration: none; /* Убираем подчеркивание */
-}
-
-.pagination a:hover {
-    text-decoration: underline; /* Подчеркивание при наведении */
-}
-
-.pagination .page-item a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 16px;
-    padding: 5px 10px;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-}
-
-.pagination .page-item a:hover {
-    background-color: #007bff;
-    color: white;
-}
-
-.pagination .page-item a:disabled {
-    color: #ccc;
-    pointer-events: none;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+#menu-buttons {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    color: #ffffff; 
+    align-items: center;
+    gap: 10px;
+    position: relative; /* Убираем прокрутку */
 }
 
-.gallery li {
-    margin-right: 20px; /* Отступ между элементами */
-}
-
-.gallery a {
-    text-decoration: none; /* Убирает подчеркивание у ссылок */
-    color: #333; /* Меняет цвет текста на темно-серый */
-    font-size: 16px; /* Размер шрифта */
-    font-family: 'Alumni Sans', sans-serif; /* Устанавливает шрифт Arial (если его нет — используется sans-serif) */
-    font-size: 30px;
-}
-
-.gallery a:hover {
-    color: #007bff; /* Цвет текста при наведении (можно изменить) */
-}
-
-.property-card {
-    border: 1px solid #ccc;
-    padding: 15px;
-    align-items: flex-start;
-}
-
-.property-card img {
-    width: 128px; /* Фиксируем ширину изображения */
-    height: 128px; /* Фиксируем высоту изображения */
-    margin-right: 15px; /* Отступ справа от изображения */
-    object-fit: cover; /* Это обеспечит сохранение пропорций изображения */
-}
-
-.property-card .property-info {
-    display: flex;
-    flex-direction: column; /* Строим текст вертикально */
-
-}
-
-.property-card .property-info p {
-    margin: 5px 0; /* Отступы между строками */
-}
-
-.answer {
-    display: none;
-    padding: 10px 0;
-    color: #555;
-}
-.question:hover {
+/* Стиль для кнопок */
+#menu-buttons button {
+    background-color: #ffffff;
+    color: #068e45;
+    padding: 10px 20px; /* Увеличиваем размер для удобства на мобильных устройствах */
+    border: none;
     cursor: pointer;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease; /* Плавный переход цвета */
 }
 
-.profile-photo {
-    width: 150px; /* Размер рамки */
-    height: 150px; /* Размер рамки */
-    border-radius: 50%; /* Закругляет рамку */
-    overflow: hidden; /* Скрывает выступающие части изображения */
-    border: 2px solid #007bff; /* Рамка */
+#menu-buttons button a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.rounded-photo {
-    width: 100%; /* Увеличивает фото до размеров рамки */
-    height: 100%; /* Увеличивает фото до размеров рамки */
-    object-fit: cover; /* Масштабирует изображение, чтобы заполнить рамку */
-    transform: scale(2.2); /* Увеличивает фото, делая "приближение" */
-}
-
-.text_link {
-    margin-bottom: 20px; /* Отступы между секциями */
-    font-family: 'Alumni Sans SC', sans-serif; /* Шрифт */
-    color: #202020; /* Цвет текста */
-}
-
-a {
-    color: #2d83d8; /* Цвет ссылки */
-    text-decoration: none; /* Убираем подчеркивание */
-}
-
-a:visited {
-    color: #2d83d8; /* Цвет после перехода по ссылке */
-    text-decoration: none; /* Убираем подчеркивание после перехода */
-}   
-
-a:hover {
-    color: #18497a; /* Цвет при наведении */
-    text-decoration: none; /* Убираем подчеркивание при наведении */
-}
-
-a:active {
-    color: #003366; /* Цвет при активном нажатии */
-    text-decoration: none; /* Убираем подчеркивание при активном нажатии */
-
-}
-
-/* Подвал */
-.footer {
-    position: fixed; /* Подвал будет закреплен */
-    bottom: 0; /* Приклеиваем подвал к низу */
-    width: 100%; /* Подвал занимает всю ширину */
-    background-color: #2d83d8;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    z-index: 100; /* Чтобы подвал был поверх остального контента */
-}
-
-/* Убираем стандартные маркеры (кружки) для списка */
-nav ul {
-    list-style: none; /* Убирает стандартные маркеры */
-    padding: 0;
-    margin: 0;
-}
-
-nav li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-/* Стиль для ссылок в навигации */
-nav a {
-    text-decoration: none; /* Убираем подчеркивание */
-    color: #ffffff; /* Цвет текста */
-    font-size: 18px; /* Размер шрифта */
-}
-
-/* Стили для навигации при наведении */
-nav a:hover {
-    color: #007bff; /* Цвет текста при наведении */
-}
-
-/* Стиль для изображения, который идет перед подвалом */
-.footer-image-img {
-    width: 100%;  /* Изображение будет растягиваться по ширине контейнера */
-    height: auto;  /* Сохраняет пропорции изображения */
-    display: block; /* Убирает лишние отступы вокруг изображения */
-    margin: 0; /* Убираем все отступы */
-    
-    /* Устанавливаем максимальные размеры */
+#menu-buttons button:hover {
+    background-color: #00AF53;
+    color: #ffffff;
     
 }
-/* Убираем фиксированное положение подвала */
-.footer {
-    position: fixed;  /* Закрепляем подвал внизу */
-    bottom: 0;        /* Приклеиваем подвал к низу */
-    width: 100%;      /* Подвал занимает всю ширину */
-    background-color: #2d83d8;
-    color: white;
+
+#menu-buttons button:hover a {
+    color: #ffffff; /* Цвет текста внутри ссылки при наведении */
+}
+
+
+
+
+
+/* Футер */
+footer {
+    margin-top: auto; /* Поднимает футер вниз, если места хватает */
     text-align: center;
-    padding: 10px;
-    z-index: 100;     /* Подвал будет поверх остального контента */
+    color: #06773b;
+}
+
+/* Логотип в футере */
+.logo-futter {
+    max-width: 40px;
+    height: auto;
+    margin-top: 5px;
 }
 
 
-.footer-image-container {
-    width: 200px;  /* Устанавливаем размер картинки */
-    height: 200px; /* Устанавливаем размер картинки */
-    object-fit: cover; /* Масштабируем изображение, чтобы оно не искажалось */
-    position: fixed; /* Закрепляем картинку внизу */
-    bottom: 50px; /* Отступ от подвала, чтобы картинка не перекрывала его */
-    left: 50%; /* Центрируем изображение по горизонтали */
-    transform: translateX(-50%); /* Центрируем по оси X */
-    z-index: -1; /* Помещаем картинку за контент */
+/* Общий контейнер для картинки и текста */
+.image-text-container {
+    display: flex;             /* Располагаем элементы в строку */
+    justify-content: center;   /* Выравниваем блок по центру экрана */
+    align-items: flex-start;   /* Выравниваем элементы по верхнему краю */
+    gap: 30px;                 /* Расстояние между картинкой и текстом */
+    padding-left: 70px;
+    flex-wrap: wrap;
+    padding-top: 40px;
 }
+
+/* Стиль для картинки */
+.image {
+    max-width: 200px;          /* Ограничиваем ширину картинки */
+    height: auto;              /* Сохраняем пропорции изображения */
+    border-radius: 25px;       /* Закругляем углы изображения на 15px */
+
+}
+
+/* Контейнер для текста */
+.text-container {
+    display: flex;
+    flex-direction: column;    /* Текст будет располагаться в колонку */
+    justify-content: flex-start; /* Выравнивание текста по верхнему краю */
+    gap: 10px;                 /* Расстояние между строками текста */
+    max-width: 400px;          /* Максимальная ширина текста, чтобы он не растягивался */
+    word-wrap: break-word;     /* Перенос слов, если они не помещаются в строку */
+    overflow-wrap: break-word; /* Альтернатива для переноса длинных слов */
+}
+
+/* Стиль для текста */
+.text {
+    margin: 0;                 /* Убираем отступы */
+    word-wrap: break-word;     /* Переносим длинные слова на новую строку */
+    overflow-wrap: break-word; /* Альтернатива для предотвращения переполнения */
+}
+
+/* Стиль для первой строки текста (если нужно увеличить шрифт или сделать жирным) */
+.text-first {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Стиль для второй строки текста */
+.text-second {
+    font-size: 16px;
+}
+
+
+/* Для картинки на больших экранах */
+.image-large {
+    display: block; /* Показываем на больших экранах */
+}
+
+/* Для картинки на маленьких экранах */
+.image-small {
+    display: none;  /* Скрываем картинку для маленьких экранов по умолчанию */
+}
+
+
+.all_services {
+    display: flex; /* Выстраивает блоки в ряд */
+    justify-content: center; /* Центрирует блоки по горизонтали */
+    align-items: center; /* Центрирует блоки по вертикали */
+    flex-wrap: wrap; /* Дает возможность изображениям располагаться в несколько строк при малом экране */
+    padding-top: 50px;
+    gap: 25px;
+    
+}
+
+.all_services div {
+    position: relative; /* Для корректной работы анимации */
+    overflow: hidden; /* Чтобы элементы не выходили за пределы */
+    transition: transform 0.3s ease; /* Плавная анимация увеличения блока */
+    border: 1px solid rgb(226, 217, 217); /* Серая рамка размером 1px */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень, которая добавляется с отступом */
+    width: 250px; /* Ширина блока */
+    height: 250px; /* Высота блока */
+
+}
+
+.all_services img {
+    width: 100%; /* Картинка занимает всю ширину блока */
+    height: auto; /* Сохраняются пропорции картинки */
+}
+
+.all_services div:hover {
+    transform: scale(1.1); /* Увеличиваем блок при наведении */
+
+}
+
+.center-container {
+    display: flex;             /* Включаем флексбокс */
+    flex-direction: column;    /* Располагаем элементы друг под другом */
+    align-items: center;       /* Выравниваем элементы по горизонтали */
+    justify-content: center;   /* Выравниваем элементы по вертикали */
+    padding: 20px;             /* Отступы внутри контейнера */
+    box-sizing: border-box;    /* Включаем отступы в расчёт размеров */
+    
+}
+
+.center-container section {
+    margin: 10px 0;            /* Добавляем расстояние между секциями */
+    width: 100%;               /* Секции растягиваются на всю ширину контейнера */
+    max-width: 800px;          /* Ограничиваем максимальную ширину */
+}
+
+
+/* Медиазапрос для мобильных устройств (максимальная ширина экрана до 768px) */
+@media (max-width: 768px) {
+
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Элементы выравниваются сверху */
+        align-items: center;
+        text-align: center;
+        padding: 150px 0; /* Уменьшаем отступы */
+        position: relative;
+    }
+
+    .logo-container-2{
+        text-align: center;
+        max-width: 80%; /* Ограничивает контейнер в ширине */
+        overflow: hidden; /* Убирает элементы, выходящие за пределы контейнера */
+        font-size: 10px;     /* Увеличиваем размер шрифта */
+    
+    }
+    
+    .logo-container {
+        margin-bottom: 20px; /* Небольшой отступ между логотипом и кнопками */
+    }
+    
+    .logo {
+        max-width: 80%; /* Логотип будет 80% от ширины контейнера */
+        height: auto; /* Сохраняет пропорции */
+    }
+    
+    /* Контейнер для кнопок */
+    #menu-buttons {
+        display: flex;
+        flex-direction: row;  /* Размещение кнопок в строку */
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        gap: 1px;
+    }
+    
+    /* Стиль для кнопок */
+    #menu-buttons button {
+        background-color: #ffffff;
+        color: #068e45;
+        padding: 1px 15px;  /* Увеличиваем размер кнопок */
+        font-size: 9px;     /* Увеличиваем размер шрифта */
+        border: none;
+        cursor: pointer;
+        border-radius: 25px;
+        transition: background-color 0.3s ease; /* Плавный переход цвета */
+    }
+
+    .image-text-container {
+        display: flex;
+        justify-content: center;  /* Центрирует элементы по горизонтали */
+        align-items: center;      /* Центрирует элементы по вертикали */
+        gap: 30px;                /* Расстояние между изображением и текстом */
+        padding-left: 70px;
+        padding-top: 40px;
+        flex-direction: row;      /* Элементы располагаются в строку */
+    
+        /* Ограничиваем размеры блока */
+        max-width: 900px;         /* Максимальная ширина блока */
+        width: 70%;               /* Ширина блока в процентах от родителя */
+        max-height: 500px;        /* Максимальная высота блока */
+        height: auto;             /* Высота будет автоматически регулироваться */
+    
+        /* Уменьшаем отступы внутри контейнера */
+        padding: 20px;            /* Уменьшаем внутренние отступы */
+    
+        /* Добавляем возможность менять положение */
+        position: absolute;       /* Позволяет перемещать элемент */
+        top: 53%;                 /* Расположение блока по вертикали (можно менять) */
+        left: 50%;                /* Расположение блока по горизонтали (можно менять) */
+        transform: translate(-50%, -50%); /* Центрируем блок относительно его середины */
+    }
+
+
+    .image-large {
+        display: none;  /* Скрываем картинку для больших экранов на маленьких устройствах */
+    }
+    
+    .image-small {
+        display: block; /* Показываем картинку для маленьких экранов */
+        max-width: 300px;          /* Ограничиваем ширину картинки */
+
+    }
+
+    .text-first {
+        font-size: 18px;  /* Уменьшаем размер шрифта */
+        font-weight: bold;
+    }
+    .text-second {
+        font-size: 12px;  /* Уменьшаем размер шрифта */
+    }
+
+    .all_services {
+        display: flex; /* Выстраивает блоки в ряд */
+        justify-content: center; /* Центрирует блоки по горизонтали */
+        align-items: center; /* Центрирует блоки по вертикали */
+        flex-wrap: wrap; /* Дает возможность изображениям располагаться в несколько строк при малом экране */
+        padding-top: 50px;
+        gap: 15px;
+        position: relative; /* Чтобы можно было использовать top */
+        top: -160px; /* Сдвигаем блоки вверх на 50px */
+        
+    }
+    .all_services div {
+        position: relative; /* Для корректной работы анимации */
+        overflow: hidden; /* Чтобы элементы не выходили за пределы */
+        transition: transform 0.3s ease; /* Плавная анимация увеличения блока */
+        border: 1px solid rgb(226, 217, 217); /* Серая рамка размером 1px */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень, которая добавляется с отступом */
+        width: 100px; /* Ширина блока */
+        height: 100px; /* Высота блока */
+    
+    }
+
+    
+
+}
+
+/* Медиазапрос для планшетов и устройств с экраном от 769px до 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .logo-container {
+        top: 40%; /* Устанавливаем отступ по вертикали для планшетов */
+    }
+    
+    .logo {
+        max-width: 85%; /* Логотип будет немного меньше для планшетов */
+    }
+
+    /* Стили для кнопок */
+    #menu-buttons {
+        flex-direction: row; /* Кнопки в ряд */
+        gap: 15px; /* Средние промежутки между кнопками */
+    }
+
+    #menu-buttons button {
+        padding: 10px 20px; /* Средние отступы для кнопок */
+        font-size: 16px; /* Средний размер шрифта */
+    }
+}
+
+/* Медиазапрос для десктопных устройств (экран больше 1024px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+
+    .header-container {
+        display: flex
+    ;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        padding-top: 70px;
+        position: relative;
+    }
+    .logo-container {
+        top: 50%; /* Логотип по центру для десктопов */
+    }
+    
+    .logo {
+        max-width: 40%; /* Логотип будет больше для десктопов */
+    }
+
+    /* Стили для кнопок */
+    #menu-buttons {
+        flex-direction: row; /* Кнопки в ряд */
+        gap: 20px; /* Большие промежутки между кнопками */
+    }
+
+    #menu-buttons button {
+        padding: 12px 24px; /* Большие отступы для кнопок */
+        font-size: 18px; /* Большой размер шрифта */
+    }
+
+    .image {
+        max-width: 170px;          /* Ограничиваем ширину картинки */
+        height: auto;              /* Сохраняем пропорции изображения */
+        border-radius: 25px;       /* Закругляем углы изображения на 15px */
+    
+    }
+    .text-first {
+        font-size: 18px;  /* Уменьшаем размер шрифта */
+        font-weight: bold;
+    }
+    .text-second {
+        font-size: 14px;  /* Уменьшаем размер шрифта */
+    }
+
+    .all_services div {
+        position: relative; /* Для корректной работы анимации */
+        overflow: hidden; /* Чтобы элементы не выходили за пределы */
+        transition: transform 0.3s ease; /* Плавная анимация увеличения блока */
+        border: 1px solid rgb(226, 217, 217); /* Серая рамка размером 1px */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень, которая добавляется с отступом */
+        width: 150px; /* Ширина блока */
+        height: 150px; /* Высота блока */
+    
+    }
+
+    .center-container {
+        width: 80%; /* Ограничиваем ширину контейнера */
+        margin: 0 auto; /* Центрируем контейнер */
+        transform: scale(0.85); /* Масштабируем контейнер до 85% от оригинала */
+        transform-origin: top center; /* Масштабируем от верхней части контейнера */
+        padding: 10px; /* Уменьшаем отступы внутри */
+    }
+    
+    .center-container iframe {
+        max-width: 100%; /* Ограничиваем ширину карты */
+        height: 200px; /* Уменьшаем высоту карты */
+    }
+    
+    .center-container h2 {
+        font-size: 24px; /* Меньший размер заголовка */
+        text-align: center; /* Центрируем заголовок */
+    }
+    
+    .center-container p {
+        font-size: 14px; /* Меньший размер текста */
+        line-height: 1.5; /* Увеличиваем межстрочный интервал */
+        margin: 5px 0; /* Убираем лишние отступы */
+    }
+    
+    .center-container button {
+        padding: 8px 15px; /* Уменьшаем размеры кнопки */
+        font-size: 14px; /* Меньший размер шрифта в кнопке */
+    }
+    
+    .center-container button a {
+        color: #068e45;
+        text-decoration: none;
+        font-size: 16px;
+    }
+}
+
