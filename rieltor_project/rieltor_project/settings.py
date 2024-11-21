@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'rieltor.apps.RieltorConfig',
     'django_extensions',
     'django.contrib.humanize',
+
 ]
 
 MIDDLEWARE = [
@@ -97,6 +98,9 @@ DATABASES = {
         'PASSWORD': 'admin123',  # Пароль для этого пользователя
         'HOST': 'localhost',  # Обычно это localhost
         'PORT': '3306',  # Стандартный порт для MySQL
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
     }
 }
 # DATABASES = {

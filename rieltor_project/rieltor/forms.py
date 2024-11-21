@@ -1,5 +1,5 @@
 from django import forms
-from  .models import Client, Review,Property
+from  .models import Client, Review,Property,PropertyImage
 
 
 class ClientForm(forms.ModelForm):
@@ -18,6 +18,12 @@ class PropertyForm(forms.ModelForm):
     class Meta:
         model = Property
         fields = ['adress','city','price','floor']
+
+        images = forms.ModelMultipleChoiceField(
+            queryset=PropertyImage.objects.all(),
+            widget=forms.CheckboxSelectMultiple,
+            required=False,
+        )
 
 class PropertySearchForm(forms.Form):
     city = forms.CharField(max_length=100, required=False, label='Город')

@@ -60,7 +60,7 @@ class Property(models.Model):
     adress = models.CharField(max_length=200, verbose_name='Адресс',default='')
     square = models.CharField(max_length=25, verbose_name='Площадь',blank=True)
     floor = models.CharField(max_length=3, verbose_name='Этаж')
-    price = models.IntegerField(verbose_name='Цена', blank=True, null=True)
+    price = models.CharField(max_length=255, verbose_name='Цена', blank=True, null=True, default='Договорная')
     rooms = models.CharField(max_length=2, verbose_name='Колличесто комнат',blank=True)
     living_area = models.CharField(max_length=10, verbose_name='Жилая площадь',blank=True)
     bathroom = models.CharField(max_length=50,choices=BATHROOM, verbose_name='Санузел',default='',blank=True)
@@ -91,6 +91,20 @@ class Property(models.Model):
     class Meta:
         verbose_name = "Недвижимость"
         verbose_name_plural = "Недвижимость"
+
+class PropertyImage(models.Model):
+    property = models.ForeignKey(Property, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='property_images/', blank=True, null=True, verbose_name='Фото')
+
+    def __str__(self):
+        return f"Фото для {self.property}"
+
+
+    class Meta:
+        verbose_name = "Фото"
+        verbose_name_plural = "Фото"
+
+
 
 class CompanyInfo(models.Model):
     name = models.CharField(max_length=200, verbose_name="Название компании")

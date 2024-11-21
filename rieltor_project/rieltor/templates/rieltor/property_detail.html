@@ -1,29 +1,57 @@
 {% extends 'rieltor/base.html' %}
 {% load humanize %}
-
+{% load static %}
 
 {% block title %}Детальная информация{% endblock %}
 
-{% block content  %}
-<h1>{{ property.adress }}</h1> <!-- Адрес недвижимости -->
-<div>
-    {% if property.image %}
-    <img src="{{ property.image.url }}" alt="{{ property.adress }}" width="300">
-    {% endif %}
-</div>
-<p><strong>Цена:</strong> {{ property.price|intcomma }}₽</p>
-<p><strong>Город:</strong> {{ property.city }}</p>
-<p><strong>Этаж:</strong> {{ property.floor }}</p>
-<p><strong>Площадь:</strong> {{ property.square }} м²</p>
-<p><strong>Жилая площадь:</strong> {{ property.living_area }} м²</p>
-<p><strong>Тип комнат:</strong> {{ property.type_of_rooms }}</p>
-<p><strong>Ремонт:</strong> {{ property.repair }}</p>
-<p><strong>Санузел:</strong> {{ property.bathroom }}</p>
-<p><strong>Площадь кухни:</strong> {{ property.kitchen_area }} м²</p>
-<p><strong>Описание:</strong> {{ property.description }}</p>
-<p><strong>Карта:</strong></p>
-<div>{{ property.map_link|safe }}</div>
+{% block content %}
+<section class="last">
+<section class="detail-position-h1">
+    <h1 style="color: #068e45;">{{ property.adress }}</h1> <!-- Адрес недвижимости -->
+</section>
+
+<section class="detail-position-photo">
+    <!-- Блок с изображениями -->
+    <div class="image-carousel">
+        <div class="carousel-images">
+            {% for image in property.images.all %}
+                <img src="{{ image.image.url }}" alt="Фото" width="300">
+            {% empty %}
+                <p>Нет дополнительных изображений.</p>
+            {% endfor %}
+        </div>
+        <button class="prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next-btn" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="detail-text-property">
+        <p><strong>Цена:</strong> {{ property.price|intcomma }}&nbsp;₽</p>
+        <p><strong>Город:</strong> {{ property.city }}</p>
+        <p><strong>Этаж:</strong> {{ property.floor }}</p>
+        <p><strong>Площадь:</strong> {{ property.square }} м²</p>
+        <p><strong>Жилая площадь:</strong> {{ property.living_area }} м²</p>
+        <p><strong>Тип комнат:</strong> {{ property.type_of_rooms }}</p>
+        <p><strong>Ремонт:</strong> {{ property.repair }}</p>
+        <p><strong>Санузел:</strong> {{ property.bathroom }}</p>
+        <p><strong>Площадь кухни:</strong> {{ property.kitchen_area }} м²</p>
+    </div>
+
+ </section>
+ 
+ <section class="detail-position-photo">
+    <p class="break-word"><strong>Описание:</strong> {{ property.description|linebreaksbr }}</p>
+</section>
+<!-- Скрипт JS -->
+    {% block scripts %}
+    <script src="{% static '/scripts.js' %}"></script>
+    {% endblock %}
 
 
-
+<!-- Карта -->
+<section class="center-container">
+    <p><strong style="font-size: 25px;">ОБЪЕКТ НА КАРТЕ:</strong></p>
+        <div>{{ property.map_link|safe }}</div>
+</section>
+</section>
 {% endblock %}
+

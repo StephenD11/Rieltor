@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Client, Review, Property, CompanyInfo, FAQ
+from .models import Client, Review, Property, CompanyInfo, FAQ, PropertyImage
 from django import forms
 from django.contrib.auth.models import Group, User
 from django.contrib.auth.admin import GroupAdmin, UserAdmin
@@ -46,16 +46,22 @@ class PropertyForm(forms.ModelForm):
         model = Property
         fields = '__all__'
 
+class PropertyImageInline(admin.TabularInline):
+    model = PropertyImage
+    extra = 5  # Задаем количество дополнительных пустых полей для загрузки изображений
+
 class PropertyAdmin(admin.ModelAdmin):
     form = PropertyForm
     list_display = ('adress', 'price', 'city', 'rooms', 'floor')
     search_fields = ('adress', 'city')
     list_filter = ('city',)
     ordering = ['city']
+    inlines = [PropertyImageInline]
 
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(Property,PropertyAdmin)
+admin.site.register(PropertyImage)
 admin.site.register(User, UserAdmin)
 admin.site.register(Group, GroupAdmin)
 admin.site.register(CompanyInfo)
