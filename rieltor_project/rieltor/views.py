@@ -39,10 +39,10 @@ def add_review(request):
         form = ReviewForm()
     return render(request, 'rieltor/add_review.html', {'form': form})
 
-# @cache_page(60 * 15)
+@cache_page(60 * 15)
 def property_gallery(request):
     form = PropertySearchForm(request.GET)
-    properties = Property.objects.all()
+    properties = Property.objects.all().order_by('id')  # Добавляем сортировку
 
     if form.is_valid():
         city = form.cleaned_data.get('city')
@@ -53,11 +53,11 @@ def property_gallery(request):
         if price_max:
             properties = properties.filter(price__lte=price_max)  # Фильтрация по максимальной цене
 
-    paginator = Paginator(properties, 4)  # Разбиваем на страницы по 2 объекта
+    paginator = Paginator(properties, 4)  # Разбиваем на страницы по 4 объекта
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'rieltor/property_gallery.html',  {'properties': page_obj, 'form': form})
+    return render(request, 'rieltor/property_gallery.html', {'properties': page_obj, 'form': form})
 
 
 def property_detail(request,pk):

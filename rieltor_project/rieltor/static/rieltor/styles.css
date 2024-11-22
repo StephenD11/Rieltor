@@ -47,7 +47,7 @@ html, body {
 
 /* Стиль для кнопок */
 #menu-buttons button {
-    background-color: #ffffff;
+    background-color: #ffffff00;
     color: #068e45;
     padding: 10px 20px; /* Увеличиваем размер для удобства на мобильных устройствах */
     border: none;
@@ -435,9 +435,39 @@ footer {
     padding: 8px 12px; /* Отступы для кнопки */
 }
 
-/* Медиазапрос для мобильных устройств (максимальная ширина экрана до 768px) */
-@media (max-width: 768px) {
 
+
+/* Медиазапрос для планшетов и устройств с экраном от 769px до 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .logo-container {
+        top: 40%; /* Устанавливаем отступ по вертикали для планшетов */
+    }
+    
+    .logo {
+        max-width: 85%; /* Логотип будет немного меньше для планшетов */
+    }
+
+    /* Стили для кнопок */
+    #menu-buttons {
+        flex-direction: row; /* Кнопки в ряд */
+        gap: 15px; /* Средние промежутки между кнопками */
+    }
+
+    #menu-buttons button {
+        padding: 10px 20px; /* Средние отступы для кнопок */
+        font-size: 16px; /* Средний размер шрифта */
+    }
+}
+
+/* Медиазапрос для мобильных устройств (максимальная ширина экрана до 768px) */
+
+@media (min-width: 377px) and (max-width: 768px) {
+
+    html, body {
+        background-image: url('/static/images/mobile_background.jpg'); /* Новое изображение для мобильных */
+        background-size: cover; /* Настраиваем размер нового фона */
+        background-position: center; /* Центрируем фон */
+    }
 
     .detail-position-h1 {
         font-size: 15px;
@@ -468,18 +498,19 @@ footer {
         justify-content: flex-start; /* Элементы выравниваются сверху */
         align-items: center;
         text-align: center;
-        padding: 150px 0; /* Уменьшаем отступы */
+        padding: 140px 0; /* Уменьшаем отступы */
         position: relative;
     }
 
     .what {
         display: flex;
         position: relative;
-        top: -140px;   
+        top: -120px;   
     }
 
     .break-word {
         max-width: 320px;
+        font-size: 15px;
     }
 
     .text-contact3 {
@@ -543,7 +574,7 @@ footer {
     
     /* Стиль для кнопок */
     #menu-buttons button {
-        background-color: #ffffff;
+        background-color: #ffffff00;
         color: #068e45;
         padding: 1px 15px;  /* Увеличиваем размер кнопок */
         font-size: 9px;     /* Увеличиваем размер шрифта */
@@ -557,7 +588,7 @@ footer {
         display: flex;
         justify-content: center;  /* Центрирует элементы по горизонтали */
         align-items: center;      /* Центрирует элементы по вертикали */
-        gap: 30px;                /* Расстояние между изображением и текстом */
+        gap: 10px;                /* Расстояние между изображением и текстом */
         padding-left: 70px;
         padding-top: 40px;
         flex-direction: row;      /* Элементы располагаются в строку */
@@ -594,7 +625,7 @@ footer {
         font-weight: bold;
     }
     .text-second {
-        font-size: 12px;  /* Уменьшаем размер шрифта */
+        font-size: 14px;  /* Уменьшаем размер шрифта */
     }
 
     .all_services {
@@ -684,8 +715,274 @@ footer {
     }
     
     footer {
+    position: relative;
+
+    }
+
+    .button-whatsapp {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-family: 'Commissioner', sans-serif;
+    }
+
+}
+/* Медиазапрос для мобильных устройств (максимальная ширина экрана до 450px) */
+@media (max-width: 376px) {
+
+    html, body {
+        background-image: url('/static/images/mobile_background.jpg'); /* Новое изображение для мобильных */
+        background-size: cover; /* Настраиваем размер нового фона */
+        background-position: center; /* Центрируем фон */
+    }
+
+    .detail-position-h1 {
+        font-size: 15px;
+    }
+
+    .detail-text-property {
+        font-size: 12px;
+    }
+
+
+    .image-carousel {
         position: relative;
-    top: -70px;
+        width: 150px;
+        overflow: hidden;
+    }
+
+    .detail-position-photo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        justify-self: center;
+        gap: 15px;
+    }
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Элементы выравниваются сверху */
+        align-items: center;
+        text-align: center;
+        padding: 50px 0;
+        position: relative;
+    }
+
+    .what {
+        display: flex;
+        position: relative;
+        top: -120px;   
+    }
+
+    .break-word {
+        max-width: 320px;
+        font-size: 15px;
+    }
+
+    .text-contact3 {
+        display: flex;
+        font-size: 12px;
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        align-content: stretch;
+        justify-content: flex-end;
+        position: relative;
+        top: -60px;
+    }
+    
+    .text-contact3 input,
+    .text-contact3 select,
+    .text-contact3 button {
+        font-size: 12px; /* Уменьшаем размер шрифта внутри элементов */
+        padding: 5px; /* Уменьшаем отступы внутри элементов */
+        border-radius: 4px; /* Сглаживаем углы */
+        border: 1px solid #ccc; /* Добавляем границу */
+    }
+    
+    .text-contact3 button {
+        cursor: pointer; /* Курсор при наведении */
+        background-color: #068e45; /* Задаем цвет фона */
+        color: white; /* Белый цвет текста */
+        padding: 8px 12px; /* Отступы для кнопки */
+    }
+
+    .logo-container-2{
+        text-align: center;
+        max-width: 80%; /* Ограничивает контейнер в ширине */
+        overflow: hidden; /* Убирает элементы, выходящие за пределы контейнера */
+        font-size: 10px;     /* Увеличиваем размер шрифта */
+    
+    }
+    
+    .logo-container {
+        margin-bottom: 20px; /* Небольшой отступ между логотипом и кнопками */
+    }
+    
+    .logo {
+        max-width: 80%; /* Логотип будет 80% от ширины контейнера */
+        height: auto; /* Сохраняет пропорции */
+    }
+    
+    /* Контейнер для кнопок */
+    #menu-buttons {
+        display: flex;
+        flex-direction: row;  /* Размещение кнопок в строку */
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        gap: 1px;
+    }
+    
+    /* Стиль для кнопок */
+    #menu-buttons button {
+        background-color: #ffffff00;
+        color: #068e45;
+        padding: 1px 15px;  /* Увеличиваем размер кнопок */
+        font-size: 9px;     /* Увеличиваем размер шрифта */
+        border: none;
+        cursor: pointer;
+        border-radius: 25px;
+        transition: background-color 0.3s ease; /* Плавный переход цвета */
+    }
+
+    .image-text-container {
+        display: flex;
+        justify-content: center;  /* Центрирует элементы по горизонтали */
+        align-items: center;      /* Центрирует элементы по вертикали */
+        gap: 10px;                /* Расстояние между изображением и текстом */
+        padding-left: 70px;
+        padding-top: 40px;
+        flex-direction: row;      /* Элементы располагаются в строку */
+    
+        /* Ограничиваем размеры блока */
+        max-width: 900px;         /* Максимальная ширина блока */
+        width: 70%;               /* Ширина блока в процентах от родителя */
+        max-height: 500px;        /* Максимальная высота блока */
+        height: auto;             /* Высота будет автоматически регулироваться */
+    
+        /* Уменьшаем отступы внутри контейнера */
+        padding: 20px;            /* Уменьшаем внутренние отступы */
+    
+        /* Добавляем возможность менять положение */
+        position: absolute;       /* Позволяет перемещать элемент */
+        top: 53%;                 /* Расположение блока по вертикали (можно менять) */
+        left: 50%;                /* Расположение блока по горизонтали (можно менять) */
+        transform: translate(-50%, -50%); /* Центрируем блок относительно его середины */
+    }
+
+
+    .image-large {
+        display: none;  /* Скрываем картинку для больших экранов на маленьких устройствах */
+    }
+    
+    .image-small {
+        display: block; /* Показываем картинку для маленьких экранов */
+        max-width: 300px;          /* Ограничиваем ширину картинки */
+
+    }
+
+    .text-first {
+        font-size: 18px;  /* Уменьшаем размер шрифта */
+        font-weight: bold;
+    }
+    .text-second {
+        font-size: 14px;  /* Уменьшаем размер шрифта */
+    }
+
+    .all_services {
+        display: flex; /* Выстраивает блоки в ряд */
+        justify-content: center; /* Центрирует блоки по горизонтали */
+        align-items: center; /* Центрирует блоки по вертикали */
+        flex-wrap: wrap; /* Дает возможность изображениям располагаться в несколько строк при малом экране */
+        padding-top: 50px;
+        gap: 15px;
+        position: relative; /* Чтобы можно было использовать top */
+        top: -160px; /* Сдвигаем блоки вверх на 50px */
+        
+    }
+    .all_services div {
+        position: relative; /* Для корректной работы анимации */
+        overflow: hidden; /* Чтобы элементы не выходили за пределы */
+        transition: transform 0.3s ease; /* Плавная анимация увеличения блока */
+        border: 1px solid rgb(226, 217, 217); /* Серая рамка размером 1px */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень, которая добавляется с отступом */
+        width: 100px; /* Ширина блока */
+        height: 100px; /* Высота блока */
+    
+    }
+
+    .map {
+        display: flex; /* Выстраивает блоки в ряд */
+        justify-content: center; /* Центрирует блоки по горизонтали */
+        position: relative; /* Для корректной работы анимации */
+        border: 1px solid rgb(226, 217, 217); /* Серая рамка размером 1px */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень, которая добавляется с отступом */
+    }
+
+    .center-container section {
+        margin: 10px 0;            /* Добавляем расстояние между секциями */
+        width: 80%;               /* Секции растягиваются на всю ширину контейнера */
+        max-width: 800px;          /* Ограничиваем максимальную ширину */
+        position: relative;
+        top: -140px;
+    }
+
+    .info-phone {
+        display: flex; /* Выстраивает блоки в ряд */
+        justify-content: center; /* Центрирует блоки по горизонтали */
+    }
+
+    .info-contact-h2 {
+        display: flex; 
+        justify-content: space-around; 
+        font-size: 14px;
+    }
+
+    .text-contact {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        text-transform: uppercase; /* Делает текст заглавным */
+
+    }
+
+    .text-contact2 {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        font-size: 12px;
+        flex-direction: column;
+    }
+    
+    .last {
+        display: block; 
+        position: relative; 
+        top: -140px;
+    }
+
+    iframe {
+    width: 100%;
+    height: 120px;
+    }
+
+    .whatsapp {
+        color: #068e45; 
+        font-size: 15px;
+        text-transform: uppercase;
+        
+    }
+    
+    footer {
+    position: relative;
+
     }
 
     .button-whatsapp {
@@ -696,128 +993,6 @@ footer {
 
 }
 
-/* Медиазапрос для планшетов и устройств с экраном от 769px до 1024px */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .logo-container {
-        top: 40%; /* Устанавливаем отступ по вертикали для планшетов */
-    }
-    
-    .logo {
-        max-width: 85%; /* Логотип будет немного меньше для планшетов */
-    }
-
-    /* Стили для кнопок */
-    #menu-buttons {
-        flex-direction: row; /* Кнопки в ряд */
-        gap: 15px; /* Средние промежутки между кнопками */
-    }
-
-    #menu-buttons button {
-        padding: 10px 20px; /* Средние отступы для кнопок */
-        font-size: 16px; /* Средний размер шрифта */
-    }
-}
-
-/* Медиазапрос для десктопных устройств (экран больше 1024px) */
-@media (min-width: 1025px) and (max-width: 1440px) {
 
 
-    .all-services-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-        flex-direction: row;
-        align-content: center;
-    }
-    
-    .header-container {
-        display: flex
-    ;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        text-align: center;
-        padding-top: 70px;
-        position: relative;
-    }
-    .logo-container {
-        top: 50%; /* Логотип по центру для десктопов */
-    }
-    
-    .logo {
-        max-width: 40%; /* Логотип будет больше для десктопов */
-    }
-
-    /* Стили для кнопок */
-    #menu-buttons {
-        flex-direction: row; /* Кнопки в ряд */
-        gap: 20px; /* Большие промежутки между кнопками */
-    }
-
-    #menu-buttons button {
-        padding: 12px 24px; /* Большие отступы для кнопок */
-        font-size: 18px; /* Большой размер шрифта */
-    }
-
-    .image {
-        max-width: 170px;          /* Ограничиваем ширину картинки */
-        height: auto;              /* Сохраняем пропорции изображения */
-        border-radius: 25px;       /* Закругляем углы изображения на 15px */
-    
-    }
-    .text-first {
-        font-size: 18px;  /* Уменьшаем размер шрифта */
-        font-weight: bold;
-    }
-    .text-second {
-        font-size: 14px;  /* Уменьшаем размер шрифта */
-    }
-
-    .all_services div {
-        position: relative; /* Для корректной работы анимации */
-        overflow: hidden; /* Чтобы элементы не выходили за пределы */
-        transition: transform 0.3s ease; /* Плавная анимация увеличения блока */
-        border: 1px solid rgb(226, 217, 217); /* Серая рамка размером 1px */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень, которая добавляется с отступом */
-        width: 170px;
-        height: 170px;
-    
-    }
-
-    .center-container {
-        width: 80%; /* Ограничиваем ширину контейнера */
-        margin: 0 auto; /* Центрируем контейнер */
-        transform: scale(0.85); /* Масштабируем контейнер до 85% от оригинала */
-        transform-origin: top center; /* Масштабируем от верхней части контейнера */
-        padding: 10px; /* Уменьшаем отступы внутри */
-    }
-    
-    .center-container iframe {
-        max-width: 100%; /* Ограничиваем ширину карты */
-        height: 200px; /* Уменьшаем высоту карты */
-    }
-    
-    .center-container h2 {
-        font-size: 24px; /* Меньший размер заголовка */
-        text-align: center; /* Центрируем заголовок */
-    }
-    
-    .center-container p {
-        font-size: 14px; /* Меньший размер текста */
-        line-height: 1.5; /* Увеличиваем межстрочный интервал */
-        margin: 5px 0; /* Убираем лишние отступы */
-    }
-    
-    .center-container button {
-        padding: 8px 15px; /* Уменьшаем размеры кнопки */
-        font-size: 14px; /* Меньший размер шрифта в кнопке */
-    }
-    
-    .center-container button a {
-        color: #068e45;
-        text-decoration: none;
-        font-size: 16px;
-    }
-}
 
